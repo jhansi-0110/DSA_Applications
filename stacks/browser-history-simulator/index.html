@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Browser History Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main">
+
+  <!-- LEFT -->
+  <div class="browser">
+    <h2>Browser Simulator</h2>
+
+    <input type="text" id="urlInput" placeholder="Enter page name..." />
+    <button type="button" onclick="visit()">Visit</button>
+
+    <div class="controls">
+      <button type="button" onclick="goBack()">⬅ Back</button>
+      <button type="button" onclick="goForward()">Forward ➡</button>
+    </div>
+
+    <h3>Current Page:</h3>
+    <div class="page" id="currentPage">Home</div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="stacks">
+    <h2>Stack Visualization</h2>
+
+    <p><strong>Operation:</strong> <span id="operation">None</span></p>
+
+    <div class="stack-box">
+      <h3>Back Stack</h3>
+      <ul id="backStackList"></ul>
+    </div>
+
+    <div class="stack-box">
+      <h3>Forward Stack</h3>
+      <ul id="forwardStackList"></ul>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

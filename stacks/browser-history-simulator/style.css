@@ -1,0 +1,58 @@
+body {
+  font-family: Arial;
+  background: #f4f6f8;
+}
+
+.main {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+
+.browser {
+  flex: 1;
+}
+
+input {
+  padding: 8px;
+  width: 200px;
+}
+
+button {
+  padding: 8px 10px;
+  margin: 5px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.page {
+  margin-top: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+/* stacks */
+.stacks {
+  width: 300px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.stack-box {
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #e3f2fd;
+  margin: 5px 0;
+  padding: 5px;
+}
