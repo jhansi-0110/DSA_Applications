@@ -1,7 +1,7 @@
 # ✏️ Undo / Redo Text Editor (Stack Application)
 
 ## 🌐 Live Demo
-👉 https://69bbbb7d318e236e7cd79ab9--deluxe-halva-45b5ba.netlify.app/
+👉 https://deluxe-halva-45b5ba.netlify.app/
 
 ---
 
