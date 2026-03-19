@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Undo Redo Editor</title>
+  <title>Undo Redo Visualizer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Undo / Redo Text Editor</h1>
+<div class="main">
 
+  <!-- LEFT: Editor -->
+  <div class="editor-section">
+    <h2>Text Editor</h2>
     <textarea id="editor" placeholder="Start typing..."></textarea>
 
     <div class="buttons">
@@ -18,6 +20,26 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- RIGHT: Stack Visualization -->
+  <div class="stack-section">
+    <h2>Stack Operations</h2>
+
+    <p><strong>Current Operation:</strong> <span id="operation">None</span></p>
+    <p><strong>Previous State:</strong> <span id="prevState">""</span></p>
+
+    <div class="stack-box">
+      <h3>Undo Stack</h3>
+      <ul id="undoStackList"></ul>
+    </div>
+
+    <div class="stack-box">
+      <h3>Redo Stack</h3>
+      <ul id="redoStackList"></ul>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

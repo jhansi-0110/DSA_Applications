@@ -2,33 +2,72 @@ const editor = document.getElementById("editor");
 
 let undoStack = [];
 let redoStack = [];
-
-// store previous state
 let previousText = "";
 
-// when user types
+// UI elements
+const undoList = document.getElementById("undoStackList");
+const redoList = document.getElementById("redoStackList");
+const operationText = document.getElementById("operation");
+const prevStateText = document.getElementById("prevState");
+
+// update UI
+function updateUI() {
+  undoList.innerHTML = "";
+  redoList.innerHTML = "";
+
+  undoStack.forEach(item => {
+    let li = document.createElement("li");
+    li.textContent = item;
+    undoList.appendChild(li);
+  });
+
+  redoStack.forEach(item => {
+    let li = document.createElement("li");
+    li.textContent = item;
+    redoList.appendChild(li);
+  });
+
+  prevStateText.textContent = `"${previousText}"`;
+}
+
+// typing
 editor.addEventListener("input", () => {
-  undoStack.push(previousText);  // save old state
-  previousText = editor.value;   // update current
-  redoStack = [];               // clear redo stack
+  operationText.textContent = "push → undoStack";
+
+  undoStack.push(previousText);
+  previousText = editor.value;
+
+  redoStack = [];
+
+  updateUI();
 });
 
-// UNDO
+// undo
 function undo() {
   if (undoStack.length === 0) return;
 
-  redoStack.push(editor.value);         // save current for redo
-  let lastState = undoStack.pop();      // get last state
-  editor.value = lastState;
-  previousText = lastState;
+  operationText.textContent = "pop ← undoStack | push → redoStack";
+
+  redoStack.push(editor.value);
+  let last = undoStack.pop();
+
+  editor.value = last;
+  previousText = last;
+
+  updateUI();
 }
 
-// REDO
+// redo
 function redo() {
   if (redoStack.length === 0) return;
 
-  undoStack.push(editor.value);         // save current
-  let nextState = redoStack.pop();      // get redo state
-  editor.value = nextState;
-  previousText = nextState;
+  operationText.textContent = "pop ← redoStack | push → undoStack";
+
+  undoStack.push(editor.value);
+  let next = redoStack.pop();
+
+  editor.value = next;
+  previousText = next;
+
+  updateUI();
 }
